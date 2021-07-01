@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Mensagens Antigas</p>
+    <fieldset>
+        <div id="usersOld">
+        </div>
+    </fieldset>
+    <br><br>
+    <p>Mensagens Novas</p>
+    <fieldset>
+        <div id="usersNew">
+        </div>
+    </fieldset>
+</body>
+
+<script>
+    function fazGet(url) {
+        let request = new XMLHttpRequest()
+        request.open("GET", url, false)
+        request.send()
+        return request.responseText
+    }
+
+    function main() {
+        var url_atual = window.location.href;
+        console.log(url_atual)
+        var data = fazGet("http://localhost:3000/chat");
+        data = JSON.parse(data);
+
+        usersOld = document.getElementById("usersOld")
+        usersNew = document.getElementById("usersNew")
+
+        var elemento_pai = usersOld
+        if(data.usersOld){
+        data.usersOld.forEach(element => {
+            console.log(element._id)
+            var titulo = document.createElement('p');
+            var texto  = document.createTextNode(element.nome);
+            titulo.appendChild(texto);
+            elemento_pai.appendChild(titulo);
+
+            var titulo = document.createElement('p');
+            var texto  = document.createTextNode(element.email);
+            titulo.appendChild(texto);
+            elemento_pai.appendChild(titulo);
+            
+            var titulo = document.createElement('a');
+            var texto  = document.createTextNode("Privado");
+            titulo.href = "http://localhost:3002/chat/"+element._id
+            titulo.appendChild(texto);
+            elemento_pai.appendChild(titulo);
+        });
+        }
+
+        var elemento_pai = usersNew
+        if(data.usersNew){
+        data.usersNew.forEach(element => {
+            console.log(element._id)
+            var titulo = document.createElement('p');
+            var texto  = document.createTextNode(element.nome);
+            titulo.appendChild(texto);
+            elemento_pai.appendChild(titulo);
+
+            var titulo = document.createElement('p');
+            var texto  = document.createTextNode(element.email);
+            titulo.appendChild(texto);
+            elemento_pai.appendChild(titulo);
+            
+            var titulo = document.createElement('a');
+            var texto  = document.createTextNode("Privado");
+            titulo.href = "http://localhost:3002/chat/"+element._id
+            titulo.appendChild(texto);
+            elemento_pai.appendChild(titulo);
+        });
+        }
+    }
+    main();
+
+    
+</script>
+
+</html>
