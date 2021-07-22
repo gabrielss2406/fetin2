@@ -136,10 +136,10 @@
         console.log(window.location.href)
         $.post(window.location.href, req, (res)=>{
           console.log(res)
-          if(res)
-            alert(res)
+          if(res.acerto)
+            alert(res.acerto)
           else
-            alert("Email enviado com sucesso!")
+            alert("Erro interno!")
         })
       }
     </script>

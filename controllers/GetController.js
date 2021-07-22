@@ -27,5 +27,24 @@ module.exports = {
         finally{
             //console.log('Email enviado!')
         }
+    },
+    async chat(req,res){
+        try{
+            var tokenn = req.headers.cookie.replace("werk.auth=", "")
+            console.log(tokenn)
+            token = {
+                token: tokenn
+            }
+            var {data} = await axios.post("http://localhost:3000/chat", token)
+            console.log(data)
+            res.render('../chat.handlebars', data)
+        }
+        catch (error){
+            console.log('error',error);
+            res.json("ball")
+        }
+        finally{
+            //console.log('Email enviado!')
+        }
     }
 }

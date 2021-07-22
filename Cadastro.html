@@ -12,11 +12,8 @@
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.18.2, nicepage.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
@@ -71,42 +68,37 @@
       <div class="u-palette-1-base u-shape u-shape-rectangle u-shape-1"></div>
       <img src="images/df1.jpg" alt="" class="u-image u-image-default u-image-1" data-image-width="1200" data-image-height="800">
       <div class="u-align-left u-container-style u-group u-opacity u-opacity-95 u-palette-3-base u-radius-16 u-shape-round u-group-1">
-        <div class="u-container-layout u-container-layout-1">
+        <div class="u-container-layout u-valign-top u-container-layout-1">
           <div class="u-clearfix u-custom-html u-custom-html-1">
             <div class="content"><!--FORMULÁRIO DE CADASTRO-->
               <div class="Cadastro">
                 <div class="container">
                   <h1>Cadastro</h1>
                   <div class="row">
-                    <p></p>
                     <div class="col">
-                      <label for="nome_cad">Seu nome</label>
+                      <label for="nome_cad">Nome completo</label>
                       <input id="nome_cad" name="nome_cad" required="required" type="text" class="form-control" placeholder="Nome">
                     </div>
-                    <p></p>
-                    <p></p>
                     <div class="col">
                       <label>Data de nascimento </label>
-                      <input id="data_cad"type="text" required="required" class="form-control" placeholder="00/00/0000" onkeypress="$(this).mask('00/00/0000')">
+                      <input id="data_cad"data-date-format="DD MMMM YYYY"type="date" required="required" class="form-control">
                     </div>
-                    <p></p>
-                    <p></p>
                     <div class="col">
                       <label>Digite seu CPF</label>
-                      <input id="cpf_cad"type="text" required="required" class="form-control" placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');">
+                      <input id="cpf_cad"type="text" name="cpf" required="required" class="form-control" placeholder="000.000.000-00">
                     </div>
-                    <p></p>
-                    <p></p>
                     <div class="col">
                       <label for="tel_login">Celular</label>
-                      <input id="tel_cad"type="text" required="required" class="form-control" placeholder="(00) 0000-00000" onkeypress="$(this).mask('(00) 0000-00009')">
+                      <input id="tel_cad"type="text" name="celular" required="required" class="form-control" placeholder="(00) 00000-0000">
                     </div>
-                    <p></p>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+                    <script type="text/javascript"> $("#tel_cad").mask("(00) 00000-0000");
+            $("#cpf_cad").mask("000.000.000-00"); </script>
                   </div>
                 </div>
                 <div class="container">
                   <div class="row">
-                    <p></p>
                     <div class="col">
                       <label for="loc_cad">Pais</label>
                       <select id="pais_cad"required="required" class="form-control">
@@ -338,8 +330,8 @@
                         <option value="Tailândia">Tailândia</option>
                         <option value="Taiwan">Taiwan</option>
                         <option value="Tanzânia">Tanzânia</option>
-                        <option value="Terras Austrais e Antárticas Francesas">Terras Austrais e Antárticas Francesas</option>
-                        <option value="Território Britânico do Oceano Índico">Território Britânico do Oceano Índico</option>
+                        <option value="Terras Austrais e Antárticas Francesas">Terras Austrais e Antárticas Francesas </option>
+                        <option value="Território Britânico do Oceano Índico">Território Britânico do Oceano Índico </option>
                         <option value="Timor-Leste">Timor-Leste</option>
                         <option value="Togo">Togo</option>
                         <option value="Tonga">Tonga</option>
@@ -401,7 +393,7 @@
                     <p></p>
                     <div class="col">
                       <label for="loc_cad">Cidade</label>
-                      <input id="cidade_cad" name="loc_cad" required="required" type="text" class="form-control" placeholder="Cidade">
+                      <input id="cidade_cad"id="loc_cad" name="loc_cad" required="required" type="text" class="form-control" placeholder="Cidade">
                     </div>
                     <div class="col">
                       <label for="loc_cad">Bairro</label>
@@ -418,13 +410,13 @@
                     <div class="col-12">
                       <form>
                         <label for="senha_cad">Sua senha</label>
-                        <input id="senha_cad" name="senha_cad" required="required" type="password" class="form-control" placeholder="Senha">
+                        <input name="password" id="senha_cad" required="required" type="password" class="form-control" placeholder="Senha">
                       </form>
                     </div>
                     <div class="col-12">
                       <form>
                         <label for="confirmarsenha">Confirmação de senha</label>
-                        <input id="senha2_cad" name="senha_cad" required="required" type="password" class="form-control" placeholder="Senha">
+                        <input name="conf_password" id="senha2_cad" required="required" type="password" class="form-control" placeholder="Senha">
                       </form>
                     </div>
                   </div>
@@ -439,24 +431,47 @@
                         <div id="more"></div>
                       </div>
                     </form>
-                    <script> 
-                      document.getElementById("box").onclick = function () {
-                        let box = document.getElementById("box")
-                        let more = document.getElementById("more")
-                        if (box.checked)
-                          more.innerHTML += "<div class='col'><label for='prof'>Sua profissão</label><input id='prof' name='prof' required='required' type='text' class='form-control' placeholder='Profissão'></div><br>"
-                        else
-                          more.innerHTML = ""
-                      } 
-                    </script>
+                    <script> document.getElementById("box").onclick = function () {
+              let box = document.getElementById("box")
+              let more = document.getElementById("more")
+              if (box.checked)
+                more.innerHTML += "<div class='col'><label for='prof'>Sua profissão</label> <select id='tipo_cad'required='required' class='form-control'multiple><option value=''>Selecione</option><option value='ad'>Advogado(a)</option><option value='adm'>Administrador(a)</option><option value='ba'>Balconista</option><option value='bi'>Biólogo(a)</option><option value='bo'>Bombeiro</option><option value='ca'>Cafeicultor</option><option value='cam'>Caminhoneiro</option><option value='cir'>Cirurgião(geral)</option><option value='com'>Comerciante</option><option value='de'>Delegado(a)</option><option value='de'>Dentista</option><option value='di'>Diarista</option><option value='dir'>Diretor(a)</option><option value='em'>Empregado doméstico(a)</option><option value='enf'>Enfermeiro(a)</option><option value='eng'>Engenheiro(Geral)</option><option value='far'>Farmacêutico(a)</option><option value='faz'>Fazendeiro</option><option value='fisi'>Fisiologista</option><option value='flo'>Floricultor</option><option value='fo'>Fotógrafo</option><option value='ge'>Gerente(Geral)</option><option value='gi'>Ginecologista</option><option value='in'>Inspetor(Geral)</option><option value='lab'>Laboratorista</option><option value='loc'>Locador(Geral)</option><option value='mad'>Madeireiro</option><option value='maq'>Maquinista</option><option value='mar'>Marceneiro</option><option value='mari'>Marinheiro</option><option value='me'>Mecânico(Geral)</option><option value='med'>Médico(Geral)</option><option value='nar'>Narrador</option><option value='nut'>Nutricionista</option><option value='od'>Odontólogo(Geral)</option><option value='or'>Ortopedista</option><option value='pad'>Padeiro</option><option value='pe'>pecuarista</option><option value='ped'>Pedreiro</option><option value='pes'>Pescador</option><option value='pq'>Pesquisador(Geral)</option><option value='pi'>Pintor</option><option value='pol'>Polícial(Geral)</option><option value='port'>Porteiro</option><option value='pro'>Produtor(Geral)</option><option value='prof'>Professor(Geral)</option><option value='prog'>Programador(Geral)</option><option value='prom'>Promotor</option><option value='qui'>Químico(Geral)</option><option value='re'>Recepcionista</option><option value='rep'>Repórter</option><option value='sa'>Salva-vidas</option><option value='sap'>Sapateiro</option><option value='sec'>Secretário(a)</option><option value='seg'>Segurança</option><option value='sor'>Sorveteiro</option><option value='tec'>Técnico(Geral)</option><option value='ur'>Urbanista</option><option value='uro'>Urologista</option><option value='ve'>Vendedor</option><option value='vet'>Veterinário</option><option value='ze'>Zelador</option><option value='zo'>Zoólogo</option></div>"
+              else
+                more.innerHTML = ""
+              if (box.checked)
+                more.innerHTML += "<div class='col'><label for='prof'>Descrição da Profissão</label> <input id='desc_cad' name='prof' required='required' type='text' class='form-control' placeholder='Descreva'></div>"
+              else
+                more.innerHTML = ""
+            }</script>
                     <div class="col-12">
-                      <label for="imagem">Imagem</label>
-                      <input id="imagem_cad" name="imagem" type="file">
+                      <label for="imagem">Foto de perfil</label>
+                      <form method="post" action="" enctype="multipart/form-data">
+                        <input type="file" name="imagem" id="imagem" onchange="previewImagem()">
+                        <br>
+                        <br>
+                        <img id="img_cad"name="pic" style="max-width: 300px; max-height:150px; width: auto; height: auto;">
+                        <br>
+                        <br>
+                      </form>
+                      <script> function previewImagem() {
+                var imagem = document.querySelector('input[name=imagem]').files[0];
+                var preview = document.querySelector('img[name=pic]');
+                var reader = new FileReader();
+                reader.onloadend = function () {
+                  preview.src = reader.result;
+                }
+                if (imagem) {
+                  reader.readAsDataURL(imagem);
+                }
+                else {
+                  preview.src = "";
+                }
+              } </script>
                     </div>
                     <div class="col-12">
-                        <button id="submit"class="btn btn-primary" type="submit">Cadastrar</button>
+                      <button id="submit"class="btn btn-primary" type="submit">Cadastrar</button>
                     </div>
-                    <p class="link"> Já tem conta? <a href="http://localhost:3002/login">Login</a>
+                    <p class="link"> Já tem conta? <a href="/login">Login</a>
                     </p>
                   </div>
                 </div>
@@ -466,11 +481,6 @@
         </div>
       </div>
     </section>
-    
-    
-    
-    
-    
     <section class="u-backlink u-clearfix u-grey-80">
       <a class="u-link" href="https://nicepage.com/templates" target="_blank">
         <span>Free Template</span>
@@ -500,6 +510,7 @@
         let email = document.getElementById('email_cad').value;
         let senha = document.getElementById('senha_cad').value;
         let senha2 = document.getElementById('senha2_cad').value;
+        let foto = document.getElementById('img_cad').src;
 
         if(!document.getElementById("box").checked){
           var req = {
@@ -514,11 +525,12 @@
           email: email,
           senha: senha,
           senha2: senha2,
-          e_trabalhador: 0
+          e_trabalhador: 0,
+          foto: foto
           }
         }else{
-          let tipo = document.getElementById("prof").value
-          //let descricao = document.getElementById("").value
+          let tipo = $('#tipo_cad').val()
+          let descricao = document.getElementById("desc_cad").value
 
           var req = {
           nome: nome,
@@ -533,13 +545,15 @@
           senha: senha,
           senha2: senha2,
           e_trabalhador: 1,
-          tipo: tipo
-          //descricao: descricao
+          tipos: tipo,
+          foto: foto,
+          descricao: descricao
           }
         }
 
         console.log(req)
         $.post('http://localhost:3002/cadastro', req, (res)=>{
+          console.log(res)
           if(res.erros){
             res.erros.forEach(element => {
               alert(element.texto)

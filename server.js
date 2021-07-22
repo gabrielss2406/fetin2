@@ -1,4 +1,5 @@
 var express = require('express');
+const handlebars = require('express-handlebars');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
@@ -24,9 +25,11 @@ app.post('/recuperarsenha',PostController.recuperarSenha)
 app.get('/reset', GetController.reset)
 app.post('/reset', PostController.novaSenha)
 
-app.get('/chat', (req,res)=>{
-  res.render('../index2.html')
-})
+//------------------------------
+app.engine('handlebars', handlebars({
+  defaultLayout: '../../main',
+}))
+app.get('/chat', GetController.chat)
 
 app.get('/messages/:id', async(req, res) => {
   var {data} = await axios.get("http://localhost:3000/chat/"+req.params.id)

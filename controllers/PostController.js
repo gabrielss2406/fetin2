@@ -40,8 +40,8 @@ module.exports = {
     async recuperarSenha(req,res){
         try{
             var {data} = await axios.post("http://localhost:3000/recuperarSenha", req.body)
-            console.log(data)
-            res.json(data)    
+            console.log(data.email)
+            res.json(data.email)    
         }
         catch (error){
             res.sendStatus(500);
@@ -55,9 +55,9 @@ module.exports = {
     async novaSenha(req,res){{
         try{
             console.log("http://localhost:3000/novasenha?token="+req.query.token)
-            var {data} = await axios.post("http://localhost:3000/novasenha?token="+req.query.token, req.body)
+            var {data} = await axios.post("http://localhost:3000/reset?token="+req.query.token, req.body)
             console.log(data)
-            res.json(data)    
+            res.json(data)
         }
         catch (error){
             res.sendStatus(500);
