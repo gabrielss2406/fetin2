@@ -28,23 +28,34 @@ module.exports = {
             //console.log('Email enviado!')
         }
     },
-    async chat(req,res){
+
+    async Perfil(req, res){
         try{
             var tokenn = req.headers.cookie.replace("werk.auth=", "")
             console.log(tokenn)
             token = {
                 token: tokenn
             }
-            var {data} = await axios.post("http://localhost:3000/chat", token)
+            var {data} = await axios.post("http://localhost:3000/perfil" ,token)
             console.log(data)
-            res.render('../chat.handlebars', data)
+            res.render('../Perfil.handlebars', data)
         }
-        catch (error){
-            console.log('error',error);
-            res.json("ball")
+        catch{
+            res.json({erros: "erro!"})
         }
-        finally{
-            //console.log('Email enviado!')
+    },
+
+    async EditPerfil(req, res){
+        try{
+            var tokenn = req.headers.cookie.replace("werk.auth=", "")
+            token = {
+                token: tokenn
+            }
+            var {data} = await axios.post("http://localhost:3000/perfil" ,token)
+            res.render('../Editar-perfil.handlebars', data)
+        }
+        catch{
+            res.json({erros: "erro!"})
         }
     }
 }

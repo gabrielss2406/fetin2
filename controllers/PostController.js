@@ -40,8 +40,8 @@ module.exports = {
     async recuperarSenha(req,res){
         try{
             var {data} = await axios.post("http://localhost:3000/recuperarSenha", req.body)
-            console.log(data.email)
-            res.json(data.email)    
+            console.log(data)
+            res.json(data)    
         }
         catch (error){
             res.sendStatus(500);
@@ -55,9 +55,9 @@ module.exports = {
     async novaSenha(req,res){{
         try{
             console.log("http://localhost:3000/novasenha?token="+req.query.token)
-            var {data} = await axios.post("http://localhost:3000/reset?token="+req.query.token, req.body)
+            var {data} = await axios.post("http://localhost:3000/novasenha?token="+req.query.token, req.body)
             console.log(data)
-            res.json(data)
+            res.json(data)    
         }
         catch (error){
             res.sendStatus(500);
@@ -66,5 +66,17 @@ module.exports = {
         finally{
             console.log('Senha redefinida!')
         }
-    }}
+    }},
+    
+    async EditPerfil(req, res){
+        try{
+            var {data} = axios.post("http://localhost:3000/perfil/edit", req.body)
+            console.log(data)
+            res.render("../index2")
+        }
+        catch (error){
+            res.sendStatus(500);
+            console.log("Erro!, " + error)
+        }
+    }
 }
